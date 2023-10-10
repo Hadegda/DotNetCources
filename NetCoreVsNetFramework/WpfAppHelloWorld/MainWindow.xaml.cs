@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using ConcatinationLibrary;
 
 namespace WpfAppHelloWorld
 {
@@ -14,9 +15,10 @@ namespace WpfAppHelloWorld
 			set
 			{ 
 				_username = value;
-				NotifyPropertyChanged(nameof(Username));
+				NotifyPropertyChanged(nameof(Greeting));
 			}
 		}
+		public string Greeting => ConcatinationOps.CreateHelloWorldString(_username);
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

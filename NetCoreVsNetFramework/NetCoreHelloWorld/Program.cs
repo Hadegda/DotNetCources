@@ -1,11 +1,13 @@
-﻿namespace NetCoreHelloWorld
+﻿using ConcatinationLibrary;
+
+namespace NetCoreHelloWorld
 {
 	internal class Program
 	{
 		static void Main(string[] args)
 		{
 			var username = args.Length > 0 ? args[0] : "NoName";
-			Console.WriteLine($"Hello, {username}");
+			Console.WriteLine(ConcatinationOps.CreateHelloWorldString(username));
 		}
 	}
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreHelloWorld", "NetCor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppHelloWorld", "WpfAppHelloWorld\WpfAppHelloWorld.csproj", "{2BC3E41B-58B2-4D28-9070-C5187EA831BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcatinationLibrary", "ConcatinationLibrary\ConcatinationLibrary.csproj", "{8E420469-D08F-4FE7-ADCE-8A271631A1DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2BC3E41B-58B2-4D28-9070-C5187EA831BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BC3E41B-58B2-4D28-9070-C5187EA831BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BC3E41B-58B2-4D28-9070-C5187EA831BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E420469-D08F-4FE7-ADCE-8A271631A1DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E420469-D08F-4FE7-ADCE-8A271631A1DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E420469-D08F-4FE7-ADCE-8A271631A1DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E420469-D08F-4FE7-ADCE-8A271631A1DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
