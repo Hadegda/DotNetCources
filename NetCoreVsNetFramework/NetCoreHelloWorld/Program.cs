@@ -6,8 +6,14 @@ namespace NetCoreHelloWorld
 	{
 		static void Main(string[] args)
 		{
-			var username = args.Length > 0 ? args[0] : "NoName";
+			var username = GetUsername(args);
 			Console.WriteLine(ConcatinationOps.CreateHelloWorldString(username));
 		}
+
+		static bool AreArgsValid(string[] args) 
+			=> args.Length > 0;
+
+		static string GetUsername(string[] args)
+			=> AreArgsValid(args) ? args[0] : "NoName";
 	}
 }

@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="ConcatinationLibrary">
-      <HintPath>..\ConcatinationLibrary\publishedLibrary\ConcatinationLibrary.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\ConcatinationLibrary\ConcatinationLibrary.csproj" />
   </ItemGroup>
 
 </Project>
