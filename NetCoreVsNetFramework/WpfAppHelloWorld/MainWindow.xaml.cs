@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
-using ConcatinationLibrary;
+using ConcatenationLibrary;
 
 namespace WpfAppHelloWorld
 {
@@ -9,20 +9,20 @@ namespace WpfAppHelloWorld
 	/// </summary>
 	public partial class MainWindow : Window, INotifyPropertyChanged
 	{
-		public string Username
-		{
-			get => _username;
-			set
-			{ 
-				_username = value;
-				NotifyPropertyChanged(nameof(Greeting));
-			}
-		}
-		public string Greeting => ConcatinationOps.CreateHelloWorldString(_username);
+		private string _userName = "NoName";
 
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private string _username = "NoName";
+		public string UserName
+		{
+			get => _userName;
+			set
+			{ 
+				_userName = value;
+				NotifyPropertyChanged(nameof(Greeting));
+			}
+		}
+		public string Greeting => HelloWorldOperations.CreateHelloUserRecord(_userName);
 
 		public MainWindow()
 		{

@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <Label Content="Name: " VerticalAlignment="Center" />
-            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="600" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="600" VerticalContentAlignment="Center"/>
         </StackPanel>
         <TextBlock Grid.Row="2" Text="{Binding Greeting}" Width="Auto"  Height="60" TextAlignment="Center" FontSize="32"/>
     </Grid>

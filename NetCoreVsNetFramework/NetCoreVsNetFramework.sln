@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCoreHelloWorld", "NetCoreHelloWorld\NetCoreHelloWorld.csproj", "{200CCFA8-DD6B-47F0-A677-3AFFD693C740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCoreHelloWorld", "NetCoreHelloWorld\NetCoreHelloWorld.csproj", "{200CCFA8-DD6B-47F0-A677-3AFFD693C740}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppHelloWorld", "WpfAppHelloWorld\WpfAppHelloWorld.csproj", "{2BC3E41B-58B2-4D28-9070-C5187EA831BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConcatinationLibrary", "ConcatinationLibrary\ConcatinationLibrary.csproj", "{8E420469-D08F-4FE7-ADCE-8A271631A1DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConcatenationLibrary", "ConcatinationLibrary\ConcatenationLibrary.csproj", "{8E420469-D08F-4FE7-ADCE-8A271631A1DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,4 @@
-﻿using ConcatinationLibrary;
+﻿using ConcatenationLibrary;
 
 namespace NetCoreHelloWorld
 {
@@ -7,7 +7,7 @@ namespace NetCoreHelloWorld
 		static void Main(string[] args)
 		{
 			var username = GetUsername(args);
-			Console.WriteLine(ConcatinationOps.CreateHelloWorldString(username));
+			Console.WriteLine(HelloWorldOperations.CreateHelloUserRecord(username));
 		}
 
 		static bool AreArgsValid(string[] args) 

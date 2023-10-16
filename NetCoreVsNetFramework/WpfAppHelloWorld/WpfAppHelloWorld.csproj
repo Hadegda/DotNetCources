@@ -98,9 +98,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConcatinationLibrary\ConcatinationLibrary.csproj">
+    <ProjectReference Include="..\ConcatinationLibrary\ConcatenationLibrary.csproj">
       <Project>{8e420469-d08f-4fe7-adce-8a271631a1db}</Project>
-      <Name>ConcatinationLibrary</Name>
+      <Name>ConcatenationLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
