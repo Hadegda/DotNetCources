@@ -41,7 +41,7 @@ namespace Task1.Tests
                 new Product("Product 2", 20.0d),
                 new Product("Product 3", 30.0d),
             };
-            var productToFind = products[2]; // new Product("Product 3", 30.0d);
+            var productToFind = new Product("Product 3", 30.0d);
 
             int index = Utilities.IndexOf(products, product => product.Equals(productToFind));
 
