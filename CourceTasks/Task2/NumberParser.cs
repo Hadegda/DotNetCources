@@ -6,7 +6,63 @@ namespace ExceptionHandlingTask2
     {
         public int Parse(string stringValue)
         {
-            throw new NotImplementedException();
-        }
-    }
+            if (stringValue == null)
+            {
+				throw new ArgumentNullException();
+			}
+			char? sign;
+			long res;
+
+			try
+            {
+				stringValue = stringValue.Trim();
+				sign = GetSign(stringValue);
+
+				int i = sign != null ? 1 : 0;
+				res = ConvertCharToInt(stringValue[i]);
+
+				for (i++; i < stringValue.Length; i++)
+				{
+					res = res * 10 + ConvertCharToInt(stringValue[i]);
+				}
+			}
+            catch
+			{
+				throw new FormatException();
+			}
+
+			if (sign == '-')
+			{
+				res = -res;
+			}
+			return ConvertLongToInt(res);
+		}
+
+		private static char? GetSign(string stringValue)
+		{
+			if (stringValue[0] == '+' || stringValue[0] == '-')
+			{
+				return stringValue[0];
+			}
+			return null;
+		}
+
+		private static int ConvertCharToInt(char c)
+		{
+			if (c < '0' || c > '9')
+			{
+				throw new FormatException();
+			}
+			return c - '0';
+		}
+
+		private static int ConvertLongToInt(long number)
+		{
+			if (number < int.MinValue || number > int.MaxValue)
+			{
+				throw new OverflowException();
+			}
+			return (int)number;
+		}
+	}
 }
