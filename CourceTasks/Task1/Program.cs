@@ -1,10 +1,31 @@
-﻿namespace Task1
+﻿using System;
+#nullable enable
+
+namespace ExceptionHandlingTask1
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            // TODO: Implement the task here.
-        }
-    }
+			while (PrintFirstCharacter(Console.ReadLine())) { };
+		}
+
+		private static bool PrintFirstCharacter(string? line)
+		{
+			if (line == null)
+			{
+				return false;
+			}
+
+			try
+			{
+				Console.WriteLine(line[0]);
+			}
+			catch
+			{
+				Console.WriteLine("Error: empty string");
+			}
+			return true;
+		}
+	}
 }
