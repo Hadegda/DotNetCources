@@ -1,22 +1,34 @@
 ﻿using System;
-#nullable enable
 
 namespace ExceptionHandlingTask1
 {
     internal class Program
     {
+		private delegate void LineOperaion(string line);
+
         private static void Main()
         {
-			while (PrintFirstCharacter(Console.ReadLine())) { };
+			LoopThroughInput('0', PrintFirstCharacter);
 		}
 
-		private static bool PrintFirstCharacter(string? line)
+		private static void LoopThroughInput(char stopSymbol, LineOperaion lineOperation)
 		{
-			if (line == null)
+			do
 			{
-				return false;
-			}
+				var line = Console.ReadLine();
 
+				if (line == null || (line.Length == 1 && line[0] == stopSymbol))
+				{
+					break;
+				}
+
+				lineOperation(line);
+			}
+			while (true);
+		}
+
+		private static void PrintFirstCharacter(string line)
+		{
 			try
 			{
 				Console.WriteLine(line[0]);
@@ -25,7 +37,6 @@ namespace ExceptionHandlingTask1
 			{
 				Console.WriteLine("Error: empty string");
 			}
-			return true;
 		}
 	}
 }
