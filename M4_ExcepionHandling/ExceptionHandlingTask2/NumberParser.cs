@@ -10,32 +10,29 @@ namespace ExceptionHandlingTask2
             {
 				throw new ArgumentNullException();
 			}
-			char? sign;
-			long res;
 
-			try
-            {
-				stringValue = stringValue.Trim();
-				sign = GetSign(stringValue);
-
-				int i = sign != null ? 1 : 0;
-				res = ConvertCharToInt(stringValue[i]);
-
-				for (i++; i < stringValue.Length; i++)
-				{
-					res = res * 10 + ConvertCharToInt(stringValue[i]);
-				}
-			}
-            catch
+			stringValue = stringValue.Trim();
+			if (stringValue.Length == 0)
 			{
 				throw new FormatException();
 			}
+			
+			return ConvertLongToInt(ConvertStringToLong(stringValue));
+		}
 
-			if (sign == '-')
+		private static long ConvertStringToLong(string stringValue)
+		{
+			char? sign = GetSign(stringValue);
+			int i = sign != null ? 1 : 0;
+
+			long res = ConvertCharToInt(stringValue[i]);
+
+			for (i++; i < stringValue.Length; i++)
 			{
-				res = -res;
+				res = res * 10 + ConvertCharToInt(stringValue[i]);
 			}
-			return ConvertLongToInt(res);
+
+			return sign == '-' ? -res : res;
 		}
 
 		private static char? GetSign(string stringValue)
