@@ -19,7 +19,7 @@ namespace Tasks
 				}
 
 				var i = 1;
-				for (var t = _start; t.next != null; t = t.next)
+				for (var t = _start; t.Next != null; t = t.Next)
 				{
 					i++;
 				}
@@ -31,7 +31,7 @@ namespace Tasks
         {
             if (_start == null)
             {
-				_start = new Node<T> { data = e };
+				_start = new Node<T> { Data = e };
                 return;
 			}
 
@@ -48,7 +48,7 @@ namespace Tasks
 
 			if (_start == null)
 			{
-				_start = new Node<T> { data = e };
+				_start = new Node<T> { Data = e };
 				return;
 			}
 
@@ -66,9 +66,9 @@ namespace Tasks
 
 			var t = GetNodeAt(index);
 
-			var n = new Node<T> { data = e, prev = t.prev, next = t };
-			t.prev.next = n;
-			t.prev = n;
+			var n = new Node<T> { Data = e, Prev = t.Prev, Next = t };
+			t.Prev.Next = n;
+			t.Prev = n;
 		}
 
         public T ElementAt(int index)
@@ -78,7 +78,7 @@ namespace Tasks
 				throw new IndexOutOfRangeException();
 			}
 
-			return GetNodeAt(index).data;
+			return GetNodeAt(index).Data;
         }
 
         public IEnumerator<T> GetEnumerator()
@@ -93,38 +93,38 @@ namespace Tasks
 				throw new NullReferenceException();
 			}
 
-			if (item.Equals(_start.data) && _start.next == null)
+			if (item.Equals(_start.Data) && _start.Next == null)
 			{
 				_start = null;
 				return;
 			}
 
-			if (item.Equals(_start.data))
+			if (item.Equals(_start.Data))
 			{
 				GetAndRemoveFirst();
 				return;
 			}
 
-			if (item.Equals(_start.next.data) && _start.next.next == null)
+			if (item.Equals(_start.Next.Data) && _start.Next.Data == null)
 			{
-				_start.next.prev = null;
-				_start.next = null;
+				_start.Next.Prev = null;
+				_start.Next = null;
 				return;
 			}
 
 			var t = _start;
-			while (t.next.next != null)
+			while (t.Next.Next != null)
 			{
-				if (item.Equals(t.data))
+				if (item.Equals(t.Data))
 				{
-					t.prev.next = t.next;
-					t.next.prev = t.prev;
+					t.Prev.Next = t.Next;
+					t.Next.Prev = t.Prev;
 					return;
 				}
-				t = t.next;
+				t = t.Next;
 			}
 
-			if (item.Equals(t.next.data))
+			if (item.Equals(t.Next.Data))
 			{
 				GetAndRemoveLast();
 				return;
@@ -138,9 +138,9 @@ namespace Tasks
 				throw new IndexOutOfRangeException();
 			}
 
-			if (index == 0 && _start.next == null)
+			if (index == 0 && _start.Next == null)
 			{
-				var data = _start.data;
+				var data = _start.Data;
 				_start = null;
 				return data;
 			}
@@ -156,12 +156,12 @@ namespace Tasks
 			}
 
 			var t = GetNodeAt(index);
-			t.prev.next = t.next;
-			t.next.prev = t.prev;
+			t.Prev.Next = t.Next;
+			t.Next.Prev = t.Prev;
 			
-			t.prev = null;
-			t.next = null;
-			return t.data;
+			t.Prev = null;
+			t.Next = null;
+			return t.Data;
 		}
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -171,43 +171,43 @@ namespace Tasks
 
 		private void AddToStart(T e)
 		{
-			var n = new Node<T> { data = e, next = _start };
-			_start.prev = n;
+			var n = new Node<T> { Data = e, Next = _start };
+			_start.Prev = n;
 			_start = n;
 		}
 
 		private void AddToEnd(T e)
 		{
 			var t = _start;
-			while (t.next != null)
+			while (t.Next != null)
 			{
-				t = t.next;
+				t = t.Next;
 			}
-			var n = new Node<T> { data = e, prev = t };
-			t.next = n;
+			var n = new Node<T> { Data = e, Prev = t };
+			t.Next = n;
 		}
 
 		private T GetAndRemoveFirst()
 		{
 			var t = _start;
-			_start = _start.next;
-			_start.prev = null;
+			_start = _start.Next;
+			_start.Prev = null;
 
-			t.next = null;
-			return t.data;
+			t.Next = null;
+			return t.Data;
 		}
 
 		private T GetAndRemoveLast()
 		{
 			var t = _start;
-			while (t.next != null)
+			while (t.Next != null)
 			{
-				t = t.next;
+				t = t.Next;
 			}
-			t.prev.next = null;
+			t.Prev.Next = null;
 
-			t.prev = null;
-			return t.data;
+			t.Prev = null;
+			return t.Data;
 		}
 
 		private Node<T> GetNodeAt(int index)
@@ -215,16 +215,16 @@ namespace Tasks
 			var t = _start;
 			for (var i = 0; i < index; i++)
 			{
-				t = t.next;
+				t = t.Next;
 			}
 			return t;
 		}
 
 		public class Node<T>
 		{
-			public T data { get; set; }
-			public Node<T>? prev { get; set; } = null;
-			public Node<T>? next { get; set; } = null;
+			public T Data { get; set; }
+			public Node<T>? Prev { get; set; } = null;
+			public Node<T>? Next { get; set; } = null;
 		}
 
 		public class Enumerator : IEnumerator<T>
@@ -233,7 +233,7 @@ namespace Tasks
 
 			internal Enumerator(DoublyLinkedList<T> list)
 			{
-				_current = new Node<T> { next = list._start };
+				_current = new Node<T> { Next = list._start };
 			}
 
 			public T Current
@@ -242,7 +242,7 @@ namespace Tasks
 				{
 					if (_current == null) throw new InvalidOperationException("Enumerator Ended");
 
-					return _current.data;
+					return _current.Data;
 				}
 			}
 
@@ -251,7 +251,7 @@ namespace Tasks
 				get
 				{
 					if (_current == null) throw new InvalidOperationException("Enumerator Ended");
-					return _current.data;
+					return _current.Data;
 				}
 			}
 
@@ -262,22 +262,22 @@ namespace Tasks
 
 			public bool MoveNext()
 			{
-				if (_current == null || _current.next == null)
+				if (_current == null || _current.Next == null)
 				{
 					return false;
 				}
 				else
 				{
-					_current = _current.next;
+					_current = _current.Next;
 					return true;
 				}
 			}
 
 			public void Reset()
 			{
-				while(_current.prev != null)
+				while(_current.Prev != null)
 				{
-					_current = _current.prev;
+					_current = _current.Prev;
 				}
 			}
 		}
