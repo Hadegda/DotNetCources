@@ -204,11 +204,11 @@ namespace Tasks
 			return t;
 		}
 
-		public class Node<T1>
+		public class Node<TData>
 		{
-			public T1 Data { get; set; }
-			public Node<T1> Prev { get; set; }
-			public Node<T1> Next { get; set; }
+			public TData Data { get; set; }
+			public Node<TData> Prev { get; set; }
+			public Node<TData> Next { get; set; }
 		}
 
 		public class Enumerator : IEnumerator<T>
