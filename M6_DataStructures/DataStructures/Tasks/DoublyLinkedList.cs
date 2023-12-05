@@ -7,9 +7,10 @@ namespace Tasks
 {
     public class DoublyLinkedList<T> : IDoublyLinkedList<T>
     {
-        protected Node<T>? _start = null;
+        private Node<T> _start;
+		private Node<T> _end;
 
-        public int Length
+		public int Length
         { 
             get
             {
@@ -32,7 +33,8 @@ namespace Tasks
             if (_start == null)
             {
 				_start = new Node<T> { Data = e };
-                return;
+				_end = _start;
+				return;
 			}
 
 			AddToEnd(e);
@@ -105,15 +107,8 @@ namespace Tasks
 				return;
 			}
 
-			if (item.Equals(_start.Next.Data) && _start.Next.Data == null)
-			{
-				_start.Next.Prev = null;
-				_start.Next = null;
-				return;
-			}
-
 			var t = _start;
-			while (t.Next.Next != null)
+			while (t.Next != _end)
 			{
 				if (item.Equals(t.Data))
 				{
@@ -124,7 +119,7 @@ namespace Tasks
 				t = t.Next;
 			}
 
-			if (item.Equals(t.Next.Data))
+			if (item.Equals(_end.Data))
 			{
 				GetAndRemoveLast();
 				return;
@@ -158,15 +153,13 @@ namespace Tasks
 			var t = GetNodeAt(index);
 			t.Prev.Next = t.Next;
 			t.Next.Prev = t.Prev;
-			
-			t.Prev = null;
-			t.Next = null;
+		
 			return t.Data;
 		}
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-			return new Enumerator(this);
+			return GetEnumerator();
 		}
 
 		private void AddToStart(T e)
@@ -178,36 +171,27 @@ namespace Tasks
 
 		private void AddToEnd(T e)
 		{
-			var t = _start;
-			while (t.Next != null)
-			{
-				t = t.Next;
-			}
-			var n = new Node<T> { Data = e, Prev = t };
-			t.Next = n;
+			var n = new Node<T> { Data = e, Prev = _end };
+			_end.Next = n;
+			_end = n;
 		}
 
 		private T GetAndRemoveFirst()
 		{
-			var t = _start;
+			var data = _start.Data;
 			_start = _start.Next;
 			_start.Prev = null;
 
-			t.Next = null;
-			return t.Data;
+			return data;
 		}
 
 		private T GetAndRemoveLast()
 		{
-			var t = _start;
-			while (t.Next != null)
-			{
-				t = t.Next;
-			}
-			t.Prev.Next = null;
+			var data = _end.Data;
+			_end = _end.Prev;
+			_end.Next = null;
 
-			t.Prev = null;
-			return t.Data;
+			return data;
 		}
 
 		private Node<T> GetNodeAt(int index)
@@ -220,18 +204,18 @@ namespace Tasks
 			return t;
 		}
 
-		public class Node<T>
+		public class Node<T1>
 		{
-			public T Data { get; set; }
-			public Node<T>? Prev { get; set; } = null;
-			public Node<T>? Next { get; set; } = null;
+			public T1 Data { get; set; }
+			public Node<T1> Prev { get; set; }
+			public Node<T1> Next { get; set; }
 		}
 
 		public class Enumerator : IEnumerator<T>
 		{
-			private Node<T>? _current = null;
+			private Node<T> _current;
 
-			internal Enumerator(DoublyLinkedList<T> list)
+			public Enumerator(DoublyLinkedList<T> list)
 			{
 				_current = new Node<T> { Next = list._start };
 			}
@@ -240,20 +224,16 @@ namespace Tasks
 			{
 				get
 				{
-					if (_current == null) throw new InvalidOperationException("Enumerator Ended");
+					if (_current == null)
+					{
+						throw new InvalidOperationException("Enumerator Ended");
+					}
 
 					return _current.Data;
 				}
 			}
 
-			object IEnumerator.Current
-			{
-				get
-				{
-					if (_current == null) throw new InvalidOperationException("Enumerator Ended");
-					return _current.Data;
-				}
-			}
+			object IEnumerator.Current => Current;
 
 			public void Dispose()
 			{
@@ -266,11 +246,9 @@ namespace Tasks
 				{
 					return false;
 				}
-				else
-				{
-					_current = _current.Next;
-					return true;
-				}
+
+				_current = _current.Next;
+				return true;
 			}
 
 			public void Reset()
