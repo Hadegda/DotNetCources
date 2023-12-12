@@ -19,6 +19,7 @@ For example: [6, 9, 15, -2, 92, 11]
 **************************************************************************/
 
 using System;
+using System.Linq;
 
 namespace UnitTesting.CalcStats
 {
@@ -31,7 +32,20 @@ namespace UnitTesting.CalcStats
 				throw new ArgumentNullException();
 			}
 
-			return new Stats();
+			if (sequence.Length == 0)
+			{
+				return new Stats();
+			}
+
+			var stats = new Stats
+			{
+				minValue = sequence.Min(),
+				maxValue = sequence.Max(),
+				size = sequence.Length,
+				average = sequence.Average()
+			};
+
+			return stats;
 		}
 	}
 }

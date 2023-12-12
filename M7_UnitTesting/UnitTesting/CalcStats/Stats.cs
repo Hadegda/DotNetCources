@@ -5,6 +5,6 @@
 		public int minValue;
 		public int maxValue;
 		public int size;
-		public int average;
+		public double average;
 	}
 }
