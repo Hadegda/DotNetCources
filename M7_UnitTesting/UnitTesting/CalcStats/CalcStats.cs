@@ -18,12 +18,19 @@ For example: [6, 9, 15, -2, 92, 11]
 *
 **************************************************************************/
 
+using System;
+
 namespace UnitTesting.CalcStats
 {
 	public static class CalcStats
 	{
 		public static Stats CalculateStats(params int[] sequence)
 		{
+			if (sequence == null)
+			{
+				throw new ArgumentNullException();
+			}
+
 			return new Stats();
 		}
 	}
