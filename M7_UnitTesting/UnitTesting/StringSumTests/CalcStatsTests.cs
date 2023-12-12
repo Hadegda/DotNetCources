@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace UnitTesting.CalcStats.Tests
 {
@@ -10,9 +11,15 @@ namespace UnitTesting.CalcStats.Tests
 		{
 			var expected = new Stats();
 
-			var actual = CalcStats.CalculateStats(1);
+			var actual = CalcStats.CalculateStats();
 
 			Assert.AreEqual(expected, actual);
+		}
+
+		[TestMethod, ExpectedException(typeof(ArgumentNullException))]
+		public void CalculateStatsTest_NullArgument_ExceptionThrown()
+		{
+			CalcStats.CalculateStats(null);
 		}
 	}
 }
