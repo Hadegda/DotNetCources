@@ -29,5 +29,15 @@ namespace UnitTesting.StringSum.Tests
 
 			Assert.AreEqual(expectedValue, actualValue);
 		}
+
+		[TestMethod]
+		public void SumTest_SumValuesWithIntOverflow_CountCorrectly()
+		{
+			var expectedValue = ((long)int.MaxValue + int.MaxValue).ToString();
+
+			var actualValue = StringSum.Sum(int.MaxValue.ToString(), int.MaxValue.ToString());
+
+			Assert.AreEqual(expectedValue, actualValue);
+		}
 	}
 }
