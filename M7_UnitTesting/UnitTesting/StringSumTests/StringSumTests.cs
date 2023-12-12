@@ -1,14 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
-namespace UnitTesting.Tests
+namespace UnitTesting.StringSum.Tests
 {
 	[TestClass()]
 	public class StringSumTests
 	{
-		[TestMethod()]
-		public void SumTest()
+		[TestMethod(), ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void SumTest_EmptyStrings_ThrowsException()
 		{
-			Assert.Fail();
+			StringSum.Sum("", "");
 		}
 	}
 }

@@ -1,6 +1,6 @@
-﻿namespace UnitTesting
+﻿namespace UnitTesting.StringSum
 {
-	public class StringSum
+	public static class StringSum
 	{
 		public static string Sum(string num1, string num2)
 		{
