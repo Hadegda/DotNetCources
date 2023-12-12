@@ -11,7 +11,7 @@ namespace UnitTesting.StringSum
 				throw new ArgumentOutOfRangeException();
 			}
 
-			return (number1 + number2).ToString();
+			return ((long)number1 + number2).ToString();
 		}
 	}
 }
