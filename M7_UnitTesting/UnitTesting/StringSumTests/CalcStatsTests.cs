@@ -37,5 +37,21 @@ namespace UnitTesting.CalcStats.Tests
 
 			Assert.AreEqual(expected, actual);
 		}
+
+		[TestMethod]
+		public void CalculateStatsTest_MutipleElementsArray_CorrectStatsReturned()
+		{
+			var expected = new Stats
+			{
+				minValue = -2,
+				maxValue = 92,
+				size = 6,
+				average = 24.5
+			};
+
+			var actual = CalcStats.CalculateStats(6, 9, 15, -2, 92, 27);
+
+			Assert.AreEqual(expected, actual);
+		}
 	}
 }
