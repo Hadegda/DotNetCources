@@ -22,7 +22,7 @@ namespace UnitTesting.CalcStats
 {
 	public static class CalcStats
 	{
-		public static Stats CalculateStats(int[] sequence)
+		public static Stats CalculateStats(params int[] sequence)
 		{
 			return new Stats();
 		}
