@@ -21,5 +21,21 @@ namespace UnitTesting.CalcStats.Tests
 		{
 			CalcStats.CalculateStats(null);
 		}
+
+		[TestMethod]
+		public void CalculateStatsTest_SingleElementArray_CorrectStatsReturned()
+		{
+			var expected = new Stats
+			{
+				minValue = 1,
+				maxValue = 1,
+				size = 1,
+				average = 1
+			};
+
+			var actual = CalcStats.CalculateStats(1);
+
+			Assert.AreEqual(expected, actual);
+		}
 	}
 }
