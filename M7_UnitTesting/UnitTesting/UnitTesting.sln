@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSum", "UnitTesting\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSumTests", "StringSumTests\StringSumTests.csproj", "{A891C674-7DE5-45E3-8129-B94B776912CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcStats", "CalcStats\CalcStats.csproj", "{F2337496-8E43-4EBC-BAAB-F98521F14D40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A891C674-7DE5-45E3-8129-B94B776912CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A891C674-7DE5-45E3-8129-B94B776912CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A891C674-7DE5-45E3-8129-B94B776912CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2337496-8E43-4EBC-BAAB-F98521F14D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2337496-8E43-4EBC-BAAB-F98521F14D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2337496-8E43-4EBC-BAAB-F98521F14D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2337496-8E43-4EBC-BAAB-F98521F14D40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
