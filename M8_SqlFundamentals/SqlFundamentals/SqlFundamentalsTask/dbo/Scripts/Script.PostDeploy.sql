@@ -31,6 +31,10 @@ IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 4)
 BEGIN
 	INSERT INTO dbo.Address (Id, Street, City) VALUES (4, 'Baker', 'London');
 END
+IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 5)
+BEGIN
+	INSERT INTO dbo.Address (Id, Street, City, State, ZipCode) VALUES (5, 'Pushkina', 'Batumi', 'State', '6545');
+END
 
 IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 1)
 BEGIN
@@ -43,6 +47,10 @@ END
 IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 3)
 BEGIN
 	INSERT INTO dbo.Employee VALUES (3, 4, 1, 'Epam', 'PM', 'SomeName');
+END
+IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 4)
+BEGIN
+	INSERT INTO dbo.Employee (Id, AddressId, PersonId, CompanyName) VALUES (4, 5, 2, 'Epam');
 END
 
 IF NOT EXISTS (SELECT * FROM dbo.Company WHERE Id = 1)
