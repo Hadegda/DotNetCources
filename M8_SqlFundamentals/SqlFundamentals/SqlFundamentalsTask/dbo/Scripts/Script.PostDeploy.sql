@@ -1,59 +1,32 @@
-﻿IF NOT EXISTS (SELECT * FROM dbo.Person WHERE Id = 1)
-BEGIN
-	INSERT INTO dbo.Person VALUES (1, 'Anna', 'South');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Person WHERE Id = 2)
-BEGIN
-	INSERT INTO dbo.Person VALUES (2, 'Ivan', 'North');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Person WHERE Id = 3)
-BEGIN
-	INSERT INTO dbo.Person VALUES (3, 'Vlad', 'West');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Person WHERE Id = 4)
-BEGIN
-	INSERT INTO dbo.Person VALUES (4, 'Anna', 'East');
-END
+﻿DELETE FROM dbo.Employee;
+DELETE FROM dbo.Company;
+DELETE FROM dbo.Person;
+DELETE FROM dbo.Address;
 
-IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 1)
-BEGIN
-	INSERT INTO dbo.Address (Id, Street, City) VALUES (1, 'Baker', 'London');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 2)
-BEGIN
-	INSERT INTO dbo.Address (Id, Street, City) VALUES (2, 'Wide', 'London');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 3)
-BEGIN
-	INSERT INTO dbo.Address (Id, Street, City) VALUES (3, 'Pushkina', 'Batumi');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 4)
-BEGIN
-	INSERT INTO dbo.Address (Id, Street, City) VALUES (4, 'Baker', 'London');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Address WHERE Id = 5)
-BEGIN
-	INSERT INTO dbo.Address (Id, Street, City, State, ZipCode) VALUES (5, 'Pushkina', 'Batumi', 'State', '6545');
-END
+INSERT INTO dbo.Person VALUES ('Anna', 'South');
+INSERT INTO dbo.Person VALUES ('Ivan', 'North');
+INSERT INTO dbo.Person VALUES ('Vlad', 'West');
+INSERT INTO dbo.Person VALUES ('Anna', 'East');
 
-IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 1)
-BEGIN
-	INSERT INTO dbo.Employee VALUES (1, 1, 4, 'Epam', 'QA', 'SomeName');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 2)
-BEGIN
-	INSERT INTO dbo.Employee (Id, AddressId, PersonId, CompanyName) VALUES (2, 3, 3, 'Epam');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 3)
-BEGIN
-	INSERT INTO dbo.Employee VALUES (3, 4, 1, 'Epam', 'PM', 'SomeName');
-END
-IF NOT EXISTS (SELECT * FROM dbo.Employee WHERE Id = 4)
-BEGIN
-	INSERT INTO dbo.Employee (Id, AddressId, PersonId, CompanyName) VALUES (4, 5, 2, 'Epam');
-END
+INSERT INTO dbo.Address (Street, City) VALUES ('Baker', 'London');
+INSERT INTO dbo.Address (Street, City) VALUES ('Wide', 'London');
+INSERT INTO dbo.Address (Street, City) VALUES ('Pushkina', 'Batumi');
+INSERT INTO dbo.Address (Street, City) VALUES ('Baker', 'Rome');
+INSERT INTO dbo.Address (Street, City, State, ZipCode) VALUES ('Pushkina', 'Rome', 'State', '6545');
 
-IF NOT EXISTS (SELECT * FROM dbo.Company WHERE Id = 1)
-BEGIN
-	INSERT INTO dbo.Company VALUES (1, 'Epam', 2);
-END
+
+INSERT INTO dbo.Employee (AddressId, PersonId, CompanyName, Position, EmployeeName)
+	SELECT a.Id, p.Id, 'Epam', 'Dev', 'Anna South-West'
+	FROM dbo.Address a
+	INNER JOIN dbo.Person p ON p.FirstName = 'Anna' AND p.LastName = 'South' AND a.Street = 'Pushkina' AND a.City = 'Batumi'
+
+	
+INSERT INTO dbo.Employee (AddressId, PersonId, CompanyName)
+	SELECT a.Id, p.Id, 'Epam'
+	FROM dbo.Address a
+	INNER JOIN dbo.Person p ON p.FirstName = 'Vlad' AND p.LastName = 'West' AND a.Street = 'Pushkina' AND a.City = 'Rome'
+
+	
+INSERT INTO dbo.Company (Name, AddressId)
+	SELECT 'Epam', a.Id
+	FROM dbo.Address a Where a.Street = 'Pushkina' AND a.City = 'Rome'
