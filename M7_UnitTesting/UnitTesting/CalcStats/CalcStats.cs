@@ -37,13 +37,7 @@ namespace UnitTesting.CalcStats
 				return new Stats();
 			}
 
-			var stats = new Stats
-			{
-				minValue = sequence.Min(),
-				maxValue = sequence.Max(),
-				size = sequence.Length,
-				average = sequence.Average()
-			};
+			var stats = new Stats(sequence.Min(), sequence.Max(), sequence.Length, sequence.Average());
 
 			return stats;
 		}

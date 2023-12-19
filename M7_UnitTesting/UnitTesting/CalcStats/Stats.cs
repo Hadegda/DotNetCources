@@ -1,10 +1,18 @@
 ﻿namespace UnitTesting.CalcStats
 {
-	public struct Stats
+	public readonly struct Stats
 	{
-		public int minValue;
-		public int maxValue;
-		public int size;
-		public double average;
+		public int MinValue { get; }
+		public int MaxValue { get; }
+		public int Size { get; }
+		public double Average { get; }
+
+		public Stats(int minValue, int maxValue, int size, double average)
+		{
+			MinValue = minValue;
+			MaxValue = maxValue;
+			Size = size;
+			Average = average;
+		}
 	}
 }

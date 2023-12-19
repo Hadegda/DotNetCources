@@ -15,6 +15,8 @@ namespace UnitTesting.StringSum
 {
 	public static class StringSum
 	{
+		private const double Tolerance = 1e-5;
+
 		public static string Sum(string num1, string num2)
 		{
 			if (!double.TryParse(num1, out double number1) || !double.TryParse(num2, out double number2))
@@ -29,6 +31,6 @@ namespace UnitTesting.StringSum
 		}
 
 		private static bool IsNatural(double number) => 
-			number >= 0 && number == Math.Round(number);
+			number >= 0 && Math.Abs(Math.Round(number) - number) < Tolerance;
 	}
 }
