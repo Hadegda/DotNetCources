@@ -10,6 +10,7 @@
 **************************************************************************/
 
 using System;
+using System.Globalization;
 
 namespace UnitTesting.StringSum
 {
@@ -19,7 +20,8 @@ namespace UnitTesting.StringSum
 
 		public static string Sum(string num1, string num2)
 		{
-			if (!double.TryParse(num1, out double number1) || !double.TryParse(num2, out double number2))
+			if (!double.TryParse(num1, NumberStyles.Any, CultureInfo.InvariantCulture, out double number1) || 
+				!double.TryParse(num2, NumberStyles.Any, CultureInfo.InvariantCulture, out double number2))
 			{
 				throw new ArgumentOutOfRangeException();
 			}
