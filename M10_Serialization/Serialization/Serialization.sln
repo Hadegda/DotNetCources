@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySerialization", "BinarySerialization\BinarySerialization.csproj", "{936B36EA-C03B-4327-87A4-BBE891281D9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySerialization", "BinarySerialization\BinarySerialization.csproj", "{936B36EA-C03B-4327-87A4-BBE891281D9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamlSerialization", "XamlSerialization\XamlSerialization.csproj", "{745527DC-E35D-402F-9C0E-12DE2008CEBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{936B36EA-C03B-4327-87A4-BBE891281D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{936B36EA-C03B-4327-87A4-BBE891281D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{936B36EA-C03B-4327-87A4-BBE891281D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745527DC-E35D-402F-9C0E-12DE2008CEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745527DC-E35D-402F-9C0E-12DE2008CEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745527DC-E35D-402F-9C0E-12DE2008CEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745527DC-E35D-402F-9C0E-12DE2008CEBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
