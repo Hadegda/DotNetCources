@@ -2,7 +2,7 @@
 
 namespace JsonSerialization
 {
-	public class Department
+	internal class Department
 	{
 		[JsonProperty(nameof(DepartmentName))]
 		public string DepartmentName { get; set; } = string.Empty;

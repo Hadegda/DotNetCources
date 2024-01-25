@@ -12,7 +12,6 @@ namespace XamlSerialization
 
 			serializer.Serialize(writer, department);
 
-			writer.Dispose();
 			writer.Close();
 		}
 
@@ -21,8 +20,9 @@ namespace XamlSerialization
 			XmlSerializer serializer = new(typeof(Department));
 
 			using StreamReader reader = new(path);
+
 			var department = (Department?)serializer.Deserialize(reader);
-			reader.Dispose();
+
 			reader.Close();
 
 			return department;
