@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamlSerialization", "XamlSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerialization", "JsonSerialization\JsonSerialization.csproj", "{3E03FCDE-EDE8-4430-AE80-7059FB775FA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnBinarySerialization", "OwnBinarySerialization\OwnBinarySerialization.csproj", "{1AC1F6CA-61E6-4826-A2C7-D6BF54116191}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3E03FCDE-EDE8-4430-AE80-7059FB775FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E03FCDE-EDE8-4430-AE80-7059FB775FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E03FCDE-EDE8-4430-AE80-7059FB775FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC1F6CA-61E6-4826-A2C7-D6BF54116191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC1F6CA-61E6-4826-A2C7-D6BF54116191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC1F6CA-61E6-4826-A2C7-D6BF54116191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC1F6CA-61E6-4826-A2C7-D6BF54116191}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
