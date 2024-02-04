@@ -15,8 +15,9 @@ namespace OopFundamentals.DocumentStorages
             {
                 { "book", DocumentType.Book },
                 { "patent", DocumentType.Patent },
-                { "localizedbook", DocumentType.LocalisedBook }
-            };
+                { "localizedbook", DocumentType.LocalisedBook },
+				{ "magazine", DocumentType.Magazine }
+			};
             _libraryLocation = libraryLocation;
         }
 

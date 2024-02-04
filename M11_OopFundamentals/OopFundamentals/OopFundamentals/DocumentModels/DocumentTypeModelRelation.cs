@@ -6,7 +6,8 @@ namespace OopFundamentals.DocumentModels
     {
         Book,
         Patent,
-        LocalisedBook
+        LocalisedBook,
+        Magazine
     }
 
     internal class DocumentTypeModelRelation
@@ -15,7 +16,8 @@ namespace OopFundamentals.DocumentModels
         {
             { DocumentType.Book, typeof(Book) },
             { DocumentType.Patent, typeof(Patent) },
-            { DocumentType.LocalisedBook, typeof(LocalisedBook)}
-        };
+            { DocumentType.LocalisedBook, typeof(LocalisedBook)},
+			{ DocumentType.Magazine, typeof(Magazine)}
+		};
     }
 }
