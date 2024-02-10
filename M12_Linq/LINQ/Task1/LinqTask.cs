@@ -25,7 +25,8 @@ namespace Task1
             IEnumerable<Supplier> suppliers
         )
         {
-			throw new NotImplementedException();
+			return customers.GroupJoin(suppliers, customer => (customer.City, customer.Country), supplier => (supplier.City, supplier.Country),
+                (customer, suppliers) => (customer, suppliers));
 		}
 
         public static IEnumerable<Customer> Linq3(IEnumerable<Customer> customers, decimal limit)
@@ -102,7 +103,10 @@ namespace Task1
             IEnumerable<Customer> customers
         )
         {
-            throw new NotImplementedException();
+            return customers.GroupBy(custmer => custmer.City)
+                .Select(cityGroup => (cityGroup.Key,
+                    (int)cityGroup.Sum(customer => customer.Orders.Sum(order => Decimal.Round(order.Total))) / cityGroup.Count(), 
+                    cityGroup.Sum(customer => customer.Orders.Length) / cityGroup.Count()));
         }
 
         public static string Linq10(IEnumerable<Supplier> suppliers)
